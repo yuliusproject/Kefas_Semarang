@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kefas Semarang</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="Kefas Semarang" width="60" height="35">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showSection('home')">Home</a></li>
+                    <li><a href="#" onclick="showSection('about')">About</a></li>
+                    <li><a href="#" onclick="showSection('services')">Activity</a></li>
+                    <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger-menu" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="dark-mode-toggle" onclick="toggleDarkMode()">
+                <i class="fas fa-sun"></i> <!-- Ikon matahari dari Font Awesome -->
+            </div>
+        </div>
+    </header>       
+
+    <section id="home" class="section">
+        <div class="container">
+            <h2 style="text-align: center;">Mengenal Kefas</h2><br>
+            <!-- Video -->
+            <video class="hero-video" controls>
+                <source src="videos/Kefas.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>Kami adalah komunitas orang percaya yang berdedikasi untuk menyembah Tuhan dan melayani sesama.</p>
+            
+            
+            <!-- Daftar file akan dihasilkan oleh PHP -->
+            <p>Di sini Anda dapat menemukan berbagai kegiatan dan pelayanan yang kami tawarkan. Kami berharap Anda merasa nyaman dan diterima di komunitas kami.</p>
+        </div>
+    </section>
+    
+
+    <section id="about" class="section" style="display:none;">
+        <div class="container">
+            <h2>Visi Misi kefas Semarang</h2><br>
+            <img src="images/K.JPG" alt="Kefas Semarang" class="section-image">
+            <p>Kefas adalah kelompok firman dan studi yang berkomitmen untuk mendalami ajaran Kristen dan membagikannya dalam komunitas. 
+                Kami menyediakan ruang untuk belajar, berbagi pengetahuan, dan memperdalam iman melalui studi Alkitab dan pertemuan kelompok. Bergabunglah dengan kami untuk memperkuat pemahaman iman Anda dan membangun hubungan yang lebih dalam dengan sesama anggota.</p>
+        </div>
+    </section>
+    
+
+    <section id="services" class="section" style="display:none;">
+        <div class="container">
+            <h2>Kegiatan Kami</h2>
+            <div class="video-grid">
+                <div class="video-item">
+                    <h3>Open House</h3>
+                    <div class="video-wrapper">
+                        <video controls>
+                            <source src="videos/Open House.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <h3>Welcome Dinner</h3>
+                    <div class="video-wrapper">
+                        <video controls>
+                            <source src="videos/Welcome Dinner.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <h3>Campus Meeting</h3>
+                    <div class="video-wrapper">
+                        <video controls>
+                            <source src="videos/CM.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <h3>Kefas Injil</h3>
+                    <div class="video-wrapper">
+                        <video controls>
+                            <source src="videos/kefas injil.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <section id="contact" class="section" style="display:none;">
+        <div class="container">
+            <h3>Hubungi Kami</h3>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Nama:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Pesan:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <input type="button" value="Kirim Pesan" onclick="sendToWhatsApp()">
+            </form>
+        </div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fa fa-map-marker"></i>
+                <p>Alamat: Jl. Seteran Tengah No.09</p>
+            </div>
+            <div class="contact-item">
+                <i class="fa fa-phone"></i>
+                <p>Telepon: 08222 2909 4416</p>
+            </div>
+            <div class="contact-item">
+                <i class="fa fa-envelope"></i>
+                <p>Email: kefassemarang@gmail.com</p>
+            </div>cr
+        </div>
+    </section>
+    
+    <script>
+    function sendToWhatsApp() {
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var message = document.getElementById('message').value;
+        
+        var whatsappNumber = "62822229094416"; // Ganti dengan nomor WhatsApp Anda
+        var whatsappMessage = `Nama: ${name}%0AEmail: ${email}%0APesan: ${message}`;
+        var whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+        
+        window.open(whatsappURL, '_blank');
+    }
+    </script>
+    
+    
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Kefas_Semarang. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
